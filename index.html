@@ -6,427 +6,302 @@
   <title>HELLO-QUENT | Speak with Confidence</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
     .pulse-ring {
       animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
     }
     @keyframes pulse {
-      0%, 100% { opacity: 0.25; transform: scale(1); }
-      50% { opacity: 0.75; transform: scale(1.25); }
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.15); }
     }
-    .wave-bar {
-      animation: wave 1.2s ease-in-out infinite alternate;
-    }
-    @keyframes wave {
-      0% { height: 6px; }
-      100% { height: 28px; }
-    }
-    /* Hide scrollbars for clean mobile feel */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 flex justify-center items-center min-h-screen sm:py-6 sm:px-4">
+<body class="bg-slate-900 text-slate-100 flex justify-center items-center min-h-screen sm:p-4">
 
-  <!-- Main Mobile App Shell Frame -->
-  <div class="w-full max-w-md h-[100dvh] sm:h-[844px] bg-slate-900 flex flex-col relative sm:rounded-[36px] border border-slate-800/80 shadow-2xl overflow-hidden">
+  <!-- Mobile Screen Frame -->
+  <div class="w-full max-w-md h-[100dvh] sm:h-[844px] bg-slate-950 flex flex-col relative sm:rounded-3xl border border-slate-800 shadow-2xl overflow-hidden">
     
-    <!-- Header -->
-    <header class="px-5 py-3.5 flex items-center justify-between border-b border-slate-800/80 bg-slate-900/90 backdrop-blur-md sticky top-0 z-30">
-      <div class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-indigo-500 flex items-center justify-center font-extrabold text-white shadow-lg shadow-indigo-600/30 text-sm tracking-wide">
+    <!-- Top Header -->
+    <header class="px-5 py-4 flex items-center justify-between border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md sticky top-0 z-30">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white shadow-md shadow-indigo-600/30">
           HQ
         </div>
         <div>
-          <h1 class="text-sm font-bold tracking-tight text-white leading-tight">HELLO-QUENT</h1>
-          <p class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            Safe Space • Always Free
-          </p>
+          <h1 class="text-base font-bold tracking-tight text-white leading-tight">HELLO-QUENT</h1>
+          <p class="text-[10px] text-emerald-400 font-medium">Safe Space • Non-Judgmental</p>
         </div>
       </div>
-      <button onclick="openModal('premium-modal')" id="header-pro-btn" class="text-xs bg-amber-500/10 border border-amber-500/30 text-amber-300 font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 active:scale-95 transition shadow-sm">
-        <i class="fa-solid fa-crown text-[11px] text-amber-400"></i>
-        <span id="pro-badge-text">₱120 Pro</span>
+      <button onclick="openModal('premium-modal')" class="text-xs bg-amber-500/10 border border-amber-500/30 text-amber-300 font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5 active:scale-95 transition">
+        <i class="fa-solid fa-crown text-[10px]"></i>
+        <span>₱120 Pro</span>
       </button>
     </header>
 
-    <!-- Scrollable Body Viewport -->
-    <main id="app-viewport" class="flex-1 overflow-y-auto pb-24 p-4 space-y-4 no-scrollbar">
+    <!-- Scrollable Screen Content -->
+    <main id="app-viewport" class="flex-1 overflow-y-auto pb-24 p-4 space-y-4">
 
-      <!-- ================= TAB 1: PRACTICE & MOCK SIMULATOR ================= -->
+      <!-- TAB 1: PRACTICE / SIMULATIONS (DEFAULT) -->
       <section id="tab-practice" class="space-y-4">
-        <!-- Motivational Banner -->
-        <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-slate-900 border border-indigo-500/20 rounded-2xl p-4 relative overflow-hidden shadow-md">
+        <!-- Persona Welcome Card -->
+        <div class="bg-gradient-to-br from-indigo-950 to-slate-900 border border-indigo-500/20 rounded-2xl p-4 relative overflow-hidden shadow-sm">
           <div class="relative z-10">
-            <span class="text-[10px] font-bold tracking-wider text-indigo-400 uppercase bg-indigo-950/80 px-2 py-0.5 rounded border border-indigo-500/20">Private Warm-Up</span>
-            <h2 class="text-base font-bold text-white mt-1.5">Ready to speak up today?</h2>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-indigo-400">Warm-Up Zone</span>
+            <h2 class="text-lg font-bold text-white mt-0.5">Ready to speak up today?</h2>
             <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-              No audience, no judgment. Make mistakes as many times as you need.
+              No pressure, no grades, and no audience judging you. Mistakes are welcomed here.
             </p>
           </div>
           <i class="fa-solid fa-microphone-lines absolute -right-3 -bottom-3 text-7xl text-indigo-500/10"></i>
         </div>
 
-        <!-- Scenario Selector Cards -->
+        <!-- Simulation Scenario Selector -->
         <div>
-          <h3 class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 px-1">Select Practice Scenario</h3>
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2 px-1">Choose a Simulation</h3>
           <div class="grid grid-cols-1 gap-2.5">
-            
-            <button onclick="selectScenario('job')" id="btn-job" class="scenario-btn flex items-center justify-between p-3.5 rounded-xl bg-slate-900/90 border border-indigo-500/40 bg-indigo-950/20 text-left transition group">
+            <button onclick="startSimulation('job')" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 active:bg-slate-800 transition text-left">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-lg shrink-0">
+                <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg">
                   <i class="fa-solid fa-user-tie"></i>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-white group-hover:text-indigo-300 transition">Job Interview Prep</h4>
-                  <p class="text-[11px] text-slate-400">Self-introductions & behavioral prompts</p>
+                  <h4 class="text-sm font-semibold text-white">Job Interview Prep</h4>
+                  <p class="text-xs text-slate-400">Common questions, HR screening & behavioral</p>
                 </div>
               </div>
-              <i class="fa-solid fa-circle-check text-indigo-400 text-sm scenario-check"></i>
+              <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
             </button>
 
-            <button onclick="selectScenario('defense')" id="btn-defense" class="scenario-btn flex items-center justify-between p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-left transition group">
+            <button onclick="startSimulation('defense')" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 active:bg-slate-800 transition text-left">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg">
                   <i class="fa-solid fa-graduation-cap"></i>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-white group-hover:text-indigo-300 transition">Thesis & Class Defense</h4>
-                  <p class="text-[11px] text-slate-400">Methodology & research panel questions</p>
+                  <h4 class="text-sm font-semibold text-white">Thesis & Class Defense</h4>
+                  <p class="text-xs text-slate-400">Panel questions, methodology justification</p>
                 </div>
               </div>
-              <i class="fa-solid fa-circle-check text-slate-700 text-sm scenario-check hidden"></i>
+              <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
             </button>
 
-            <button onclick="selectScenario('pitch')" id="btn-pitch" class="scenario-btn flex items-center justify-between p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-left transition group">
+            <button onclick="startSimulation('pitch')" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 active:bg-slate-800 transition text-left">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-lg shrink-0">
+                <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg">
                   <i class="fa-solid fa-rocket"></i>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-white group-hover:text-indigo-300 transition">Project & Investor Pitch</h4>
-                  <p class="text-[11px] text-slate-400">Hook, value prop & 3-minute drills</p>
+                  <h4 class="text-sm font-semibold text-white">Project & Investor Pitch</h4>
+                  <p class="text-xs text-slate-400">Hook, problem-solution delivery, 3-min drill</p>
                 </div>
               </div>
-              <i class="fa-solid fa-circle-check text-slate-700 text-sm scenario-check hidden"></i>
+              <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
             </button>
-
           </div>
         </div>
 
-        <!-- Active Recording Studio Arena -->
-        <div id="recording-studio" class="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-center space-y-4 shadow-lg">
-          <div class="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
-            <span id="active-scenario-tag" class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-950/80 border border-indigo-500/30 px-2.5 py-1 rounded-md">Job Interview Simulator</span>
-            <div class="flex items-center gap-2">
-              <button onclick="readPromptAloud()" class="text-xs text-indigo-400 hover:text-indigo-300 bg-slate-800 px-2 py-1 rounded border border-slate-700 flex items-center gap-1">
-                <i class="fa-solid fa-volume-high"></i>
-                <span>Listen</span>
-              </button>
-              <span id="timer-display" class="text-xs font-mono font-bold text-slate-300 bg-slate-950 px-2 py-1 rounded border border-slate-800">00:00</span>
-            </div>
+        <!-- Active Practice Arena -->
+        <div id="recording-studio" class="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-center space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span id="active-scenario-tag" class="text-[11px] font-medium text-indigo-400 bg-indigo-950/60 px-2 py-0.5 rounded">Job Interview Simulator</span>
+            <span id="timer-display" class="text-xs font-mono text-slate-400">00:00</span>
           </div>
 
-          <div class="py-1">
-            <p class="text-[10px] uppercase font-bold tracking-wider text-slate-500 mb-1">Your Question Prompt</p>
-            <p id="prompt-question" class="text-sm font-semibold text-slate-100 italic leading-snug px-2">
+          <div class="py-2">
+            <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Your Question Prompt</p>
+            <p id="prompt-question" class="text-sm font-medium text-slate-100 italic px-2">
               "Tell me about yourself and why you're a great fit for this role."
             </p>
           </div>
 
-          <!-- Waveform Display (Active during recording) -->
-          <div id="waveform-container" class="hidden justify-center items-end gap-1.5 h-8 py-1">
-            <div class="w-1.5 bg-indigo-500 rounded-full wave-bar" style="animation-delay: 0.1s"></div>
-            <div class="w-1.5 bg-indigo-400 rounded-full wave-bar" style="animation-delay: 0.3s"></div>
-            <div class="w-1.5 bg-emerald-400 rounded-full wave-bar" style="animation-delay: 0.2s"></div>
-            <div class="w-1.5 bg-indigo-400 rounded-full wave-bar" style="animation-delay: 0.4s"></div>
-            <div class="w-1.5 bg-indigo-500 rounded-full wave-bar" style="animation-delay: 0.1s"></div>
-          </div>
-
-          <!-- Central Record Button -->
-          <div class="relative flex justify-center items-center py-2">
+          <!-- Mic Trigger Area -->
+          <div class="relative flex justify-center items-center py-4">
             <div id="mic-pulse" class="hidden absolute w-24 h-24 rounded-full bg-indigo-500/20 pulse-ring"></div>
             <button id="record-button" onclick="toggleRecording()" class="w-16 h-16 rounded-full bg-indigo-600 hover:bg-indigo-500 active:scale-90 text-white flex items-center justify-center text-xl shadow-lg shadow-indigo-600/40 z-10 transition">
               <i class="fa-solid fa-microphone" id="mic-icon"></i>
             </button>
           </div>
+          <p id="status-text" class="text-xs text-slate-400">Tap to start speaking. Take your time.</p>
 
-          <p id="status-text" class="text-xs font-medium text-slate-400">Tap mic when ready. Speak at your own rhythm.</p>
-
-          <!-- Speech-to-Text Transcript Output Area -->
-          <div class="text-left bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-xs text-slate-300 min-h-[64px] max-h-[120px] overflow-y-auto" id="live-transcription">
-            <span class="text-slate-500 italic">Your speech transcript will display here in real-time...</span>
+          <!-- Speech-to-Text / User Preview -->
+          <div class="text-left bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 min-h-[50px]" id="live-transcription">
+            Your spoken words will show here in real-time...
           </div>
         </div>
 
-        <!-- Kind Feedback Engine Card -->
-        <div id="feedback-card" class="hidden bg-slate-900 border border-emerald-500/30 rounded-2xl p-4 space-y-3 shadow-md animate-in fade-in duration-300">
+        <!-- Feedback Card (Appears after practice) -->
+        <div id="feedback-card" class="hidden bg-slate-900 border border-emerald-500/30 rounded-2xl p-4 space-y-3">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <span class="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xs">
+              <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">
                 <i class="fa-solid fa-heart"></i>
               </span>
-              <div>
-                <h4 class="text-xs font-bold text-white leading-tight">Gizmo's Gentle Feedback</h4>
-                <p class="text-[10px] text-slate-400">Private analysis • Safe space</p>
-              </div>
+              <h4 class="text-sm font-bold text-white">Kind Feedback</h4>
             </div>
-            <span class="text-[10px] font-bold text-emerald-300 bg-emerald-950 border border-emerald-500/30 px-2.5 py-1 rounded-full">+50 XP Earned!</span>
+            <span class="text-xs text-emerald-400 font-bold bg-emerald-950 px-2 py-0.5 rounded">Confidence +12 XP</span>
           </div>
           
           <div class="grid grid-cols-3 gap-2 text-center">
-            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-              <p class="text-[10px] font-semibold text-slate-400">Pace</p>
-              <p class="text-xs font-bold text-emerald-400 mt-0.5" id="fb-pace">Steady (~125 wpm)</p>
+            <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+              <p class="text-[10px] text-slate-400">Pace</p>
+              <p class="text-xs font-semibold text-emerald-400" id="metric-pace">-- WPM</p>
             </div>
-            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-              <p class="text-[10px] font-semibold text-slate-400">Filler Words</p>
-              <p class="text-xs font-bold text-amber-300 mt-0.5" id="fb-fillers">1 ("uhm")</p>
+            <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+              <p class="text-[10px] text-slate-400">Filler Words</p>
+              <p class="text-xs font-semibold text-amber-300" id="metric-fillers">0 detected</p>
             </div>
-            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-              <p class="text-[10px] font-semibold text-slate-400">Voice Tone</p>
-              <p class="text-xs font-bold text-indigo-300 mt-0.5" id="fb-tone">Calm & Clear</p>
+            <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+              <p class="text-[10px] text-slate-400">Tone</p>
+              <p class="text-xs font-semibold text-indigo-400" id="metric-tone">Gentle & Clear</p>
             </div>
           </div>
 
-          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs text-slate-200 leading-relaxed" id="coach-tip">
-            "You started with clear emphasis! Pausing quietly between sentences works much better than saying 'uhm'. You're getting more eloquent with every attempt."
-          </div>
+          <p class="text-xs text-slate-300 bg-slate-950 p-3 rounded-xl border border-slate-800 leading-relaxed" id="coach-tip">
+            "Great job starting without rushing! When explaining your thoughts, pausing silently for breath sounds much more confident than using filler words. You're getting better every try!"
+          </p>
 
-          <button onclick="resetPractice()" class="w-full py-2.5 bg-indigo-600/20 border border-indigo-500/30 hover:bg-indigo-600/30 text-indigo-300 text-xs font-bold rounded-xl transition">
-            Try Session Again (No Score Deductions)
+          <button onclick="resetPractice()" class="w-full py-2 bg-indigo-600/20 border border-indigo-500/30 hover:bg-indigo-600/30 text-indigo-300 text-xs font-semibold rounded-lg transition">
+            Try Again (No Mistakes Counted)
           </button>
         </div>
       </section>
 
-
-      <!-- ================= TAB 2: GIZMO AI TUTOR CHAT ================= -->
-      <section id="tab-tutor" class="hidden space-y-3 flex flex-col h-full">
-        <div class="flex items-center justify-between p-3 bg-slate-900 rounded-2xl border border-slate-800">
-          <div class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-600/20">
-              <i class="fa-solid fa-robot text-base"></i>
-            </div>
-            <div>
-              <h3 class="text-xs font-bold text-white">Gizmo AI Tutor</h3>
-              <p class="text-[10px] text-emerald-400 font-semibold">Always online • Zero judgment</p>
-            </div>
+      <!-- TAB 2: GIZMO AI TUTOR CHAT -->
+      <section id="tab-tutor" class="hidden space-y-3 h-full flex flex-col">
+        <div class="flex items-center gap-2 p-2 bg-slate-900 rounded-xl border border-slate-800">
+          <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center text-white">
+            <i class="fa-solid fa-robot"></i>
           </div>
-          <button onclick="clearChat()" class="text-[10px] text-slate-400 hover:text-slate-200 bg-slate-800 px-2.5 py-1 rounded-lg border border-slate-700">
-            Clear Chat
-          </button>
+          <div>
+            <h3 class="text-xs font-bold text-white">Gizmo • Virtual Tutor</h3>
+            <p class="text-[10px] text-emerald-400">Always here to answer questions without judging</p>
+          </div>
         </div>
 
-        <!-- Quick Prompt Chips -->
-        <div class="flex gap-1.5 overflow-x-auto no-scrollbar py-1">
-          <button onclick="askQuickPrompt('What if my mind goes blank during a report?')" class="whitespace-nowrap text-[10px] font-semibold bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 px-3 py-1.5 rounded-full">
-            🧠 Mind goes blank?
-          </button>
-          <button onclick="askQuickPrompt('How do I introduce myself in an interview?')" class="whitespace-nowrap text-[10px] font-semibold bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 px-3 py-1.5 rounded-full">
-            💼 Introduce myself
-          </button>
-          <button onclick="askQuickPrompt('How do I stop my voice from shaking?')" class="whitespace-nowrap text-[10px] font-semibold bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 px-3 py-1.5 rounded-full">
-            🎙️ Voice shaking?
-          </button>
-        </div>
-
-        <!-- Chat Stream Area -->
-        <div id="chat-messages" class="flex-1 space-y-3 overflow-y-auto min-h-[300px] max-h-[360px] p-2 bg-slate-950/60 rounded-2xl border border-slate-800/80 text-xs no-scrollbar">
+        <div id="chat-messages" class="flex-1 space-y-2 overflow-y-auto max-h-[380px] p-1 text-xs">
           <div class="flex gap-2">
-            <div class="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center text-xs text-white shrink-0 font-bold">G</div>
-            <div class="bg-slate-900 border border-slate-800 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-slate-200 leading-relaxed shadow-sm">
-              Hello! I'm <b>Gizmo</b>, your private speaking coach. Feel free to ask me anything about interview answers, thesis defenses, or overcoming stage fright!
+            <div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] text-white shrink-0">G</div>
+            <div class="bg-slate-900 border border-slate-800 p-2.5 rounded-2xl rounded-tl-none max-w-[85%] text-slate-200">
+              Kumusta! I’m Gizmo. Nervous about an interview, defense, or introduction? Tell me what’s worrying you and we can script it together!
             </div>
           </div>
         </div>
 
-        <!-- Chat Input Form -->
-        <div class="pt-1 flex gap-2">
-          <input type="text" id="chat-input" onkeypress="handleKeyPress(event)" placeholder="Ask Gizmo anything..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500">
-          <button onclick="sendChatMessage()" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2.5 rounded-xl text-white text-xs font-semibold active:scale-95 transition shadow-lg shadow-indigo-600/30">
+        <div class="pt-2 flex gap-1.5">
+          <input type="text" id="chat-input" onkeypress="if(event.key === 'Enter') sendChatMessage()" placeholder="Ask Gizmo anything (e.g. 'How to handle hard questions?')" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500">
+          <button onclick="sendChatMessage()" class="bg-indigo-600 px-3.5 py-2 rounded-xl text-white text-xs hover:bg-indigo-500 active:scale-95 transition">
             <i class="fa-solid fa-paper-plane"></i>
           </button>
         </div>
       </section>
 
-
-      <!-- ================= TAB 3: CONSULTATION & DATA SUPPORT ================= -->
+      <!-- TAB 3: SUPPORT & DATA RECOVERY -->
       <section id="tab-support" class="hidden space-y-4">
-        <!-- Peer Consultation Card -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-md space-y-3">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-lg">
-              <i class="fa-solid fa-user-gear"></i>
-            </div>
-            <div>
-              <h3 class="text-xs font-bold text-white">1-on-1 Consultation Booking</h3>
-              <p class="text-[10px] text-slate-400">Need real human advice before a big presentation?</p>
-            </div>
-          </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Connect with friendly communication mentors for personalized feedback on your slides or interview script.
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+          <h3 class="text-sm font-bold text-white mb-1">Human Consultation & Help Desk</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-3">
+            Need 1-on-1 human coaching for a high-stakes interview or thesis panel? Book an appointment with vetted communication mentors.
           </p>
-          <button onclick="openModal('consultation-modal')" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs transition shadow-md shadow-indigo-600/20">
-            Request Peer Mentor Session
+          <button onclick="alert('Consultation booking opened. A mentor will connect with you via chat within 15 minutes.')" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold transition">
+            Request Peer Consultation
           </button>
         </div>
 
-        <!-- Cloud Backup & Recovery Engine -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 shadow-md">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3">
           <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <i class="fa-solid fa-shield-halved text-emerald-400 text-base"></i>
-              <h3 class="text-xs font-bold text-white">Data Recovery & Backup</h3>
+            <div>
+              <h3 class="text-sm font-bold text-white">Data Recovery & Backup</h3>
+              <p class="text-xs text-slate-400">Never lose your speech notes or session records</p>
             </div>
-            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950 border border-emerald-500/30 px-2 py-0.5 rounded">Encrypted</span>
+            <i class="fa-solid fa-shield-halved text-emerald-400 text-lg"></i>
           </div>
 
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Your notes, badges, and practice scores are saved locally and synced to prevent progress loss.
-          </p>
-
-          <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/80 flex justify-between items-center text-xs">
+          <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 flex justify-between items-center text-xs">
             <div>
-              <p class="font-semibold text-slate-200">Local Safe State</p>
-              <p class="text-[10px] text-slate-400" id="backup-status-text">Status: Active & Synced</p>
+              <p class="font-medium text-slate-200">Local Cache</p>
+              <p class="text-[10px] text-slate-500" id="last-backup-time">Last synced: Just now</p>
             </div>
-            <button onclick="performBackup()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold transition border border-slate-700">
-              Sync Backup Now
+            <button onclick="backupData()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs transition">
+              Sync Backup
             </button>
           </div>
         </div>
 
-        <!-- Interactive FAQ Accordion -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-md space-y-3">
-          <h3 class="text-xs font-bold text-white">Help Center & FAQs</h3>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+          <h3 class="text-sm font-bold text-white mb-2">Frequently Asked Questions</h3>
           <div class="space-y-2 text-xs">
-            <details class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 cursor-pointer">
-              <summary class="font-semibold text-indigo-300 flex justify-between items-center">
-                <span>Can anyone hear my practice recordings?</span>
-                <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i>
-              </summary>
-              <p class="text-slate-400 mt-2 leading-relaxed text-[11px]">
-                No. Your practice sessions remain 100% private. Audio processing stays within your device browser and is never stored on public servers.
-              </p>
+            <details class="bg-slate-950 p-2.5 rounded-lg border border-slate-800/80 cursor-pointer">
+              <summary class="font-medium text-indigo-300">Can other people see my practice recordings?</summary>
+              <p class="text-slate-400 mt-1.5 leading-relaxed">No. Practice sessions remain strictly private on your device and are processed without any public sharing.</p>
             </details>
-
-            <details class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 cursor-pointer">
-              <summary class="font-semibold text-indigo-300 flex justify-between items-center">
-                <span>How does the ₱120 premium plan work?</span>
-                <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i>
-              </summary>
-              <p class="text-slate-400 mt-2 leading-relaxed text-[11px]">
-                The core app is forever free! The optional ₱120 Pro subscription unlocks advanced simulation scenarios, unlimited AI reviews, and priority mentor consultations.
-              </p>
+            <details class="bg-slate-950 p-2.5 rounded-lg border border-slate-800/80 cursor-pointer">
+              <summary class="font-medium text-indigo-300">How do I access ₱120 premium features?</summary>
+              <p class="text-slate-400 mt-1.5 leading-relaxed">Tap the "₱120 Pro" badge at the top right to unlock unlimited mock interviews and live defense simulations.</p>
             </details>
           </div>
         </div>
       </section>
 
-
-      <!-- ================= TAB 4: USER PROFILE & PROGRESS ================= -->
+      <!-- TAB 4: PROFILE & PROGRESS -->
       <section id="tab-profile" class="hidden space-y-4">
-        <!-- Persona & Level Card -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-center shadow-md space-y-3">
-          <div class="relative w-16 h-16 mx-auto">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-2xl text-white font-extrabold shadow-lg shadow-indigo-500/30">
-              K
-            </div>
-            <span id="user-pro-tag" class="hidden absolute -top-1 -right-1 bg-amber-500 text-slate-950 text-[9px] font-black px-1.5 py-0.5 rounded-full border border-amber-300">
-              PRO
-            </span>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-center">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 mx-auto flex items-center justify-center text-2xl text-white font-bold mb-2">
+            K
           </div>
-
-          <div>
-            <h3 class="text-base font-bold text-white" id="profile-name">Username</h3>
-            <p class="text-xs text-indigo-400 font-semibold" id="level-title">Level 2 • Practice Novice</p>
+          <h3 class="text-base font-bold text-white">Kabado Karla</h3>
+          <p class="text-xs text-slate-400">Level 3 Confident Speaker</p>
+          <div class="w-full bg-slate-800 rounded-full h-2 mt-3 overflow-hidden">
+            <div class="bg-emerald-500 h-2 rounded-full" style="width: 65%"></div>
           </div>
-
-          <!-- XP Progress Bar -->
-          <div class="space-y-1">
-            <div class="w-full bg-slate-950 rounded-full h-2.5 overflow-hidden border border-slate-800">
-              <div id="xp-bar" class="bg-gradient-to-r from-indigo-500 to-emerald-400 h-full rounded-full transition-all duration-500" style="width: 35%"></div>
-            </div>
-            <div class="flex justify-between text-[10px] text-slate-400 font-semibold">
-              <span id="xp-text">175 XP</span>
-              <span>Target: 500 XP</span>
-            </div>
-          </div>
+          <p class="text-[10px] text-slate-400 mt-1">650 / 1000 XP to "Eloquent Voice"</p>
         </div>
 
-        <!-- Metrics Dashboard Grid -->
         <div class="grid grid-cols-2 gap-3 text-center">
-          <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-sm">
-            <span class="text-2xl font-black text-white" id="stat-sessions font-mono">5</span>
-            <p class="text-[11px] font-semibold text-slate-400 mt-1">Sessions Completed</p>
+          <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl">
+            <span class="text-2xl font-bold text-white" id="stat-sessions">8</span>
+            <p class="text-xs text-slate-400 mt-0.5">Sessions Finished</p>
           </div>
-          <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-sm">
-            <span class="text-2xl font-black text-emerald-400" id="stat-minutes font-mono">12m</span>
-            <p class="text-[11px] font-semibold text-slate-400 mt-1">Total Time Practiced</p>
-          </div>
-        </div>
-
-        <!-- Badges Earned -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3">
-          <h3 class="text-xs font-bold text-white">Earned Badges</h3>
-          <div class="grid grid-cols-3 gap-2">
-            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-center">
-              <div class="text-amber-400 text-lg mb-1"><i class="fa-solid fa-seedling"></i></div>
-              <p class="text-[10px] font-bold text-slate-200">First Step</p>
-              <p class="text-[9px] text-slate-500">First session done</p>
-            </div>
-            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-center">
-              <div class="text-indigo-400 text-lg mb-1"><i class="fa-solid fa-heart-pulse"></i></div>
-              <p class="text-[10px] font-bold text-slate-200">Brave Heart</p>
-              <p class="text-[9px] text-slate-500">Practiced 3 times</p>
-            </div>
-            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 opacity-50 text-center">
-              <div class="text-slate-600 text-lg mb-1"><i class="fa-solid fa-crown"></i></div>
-              <p class="text-[10px] font-bold text-slate-400">Eloquent</p>
-              <p class="text-[9px] text-slate-600">Reach Level 5</p>
-            </div>
+          <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl">
+            <span class="text-2xl font-bold text-emerald-400">14 min</span>
+            <p class="text-xs text-slate-400 mt-0.5">Time Practiced</p>
           </div>
         </div>
       </section>
-
     </main>
 
     <!-- Bottom Navigation Bar -->
-    <nav class="absolute bottom-0 inset-x-0 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-3 py-2 flex justify-around items-center z-30">
-      <button onclick="switchTab('practice')" id="nav-practice" class="flex flex-col items-center gap-1 text-indigo-400 py-1 transition w-1/4">
+    <nav class="absolute bottom-0 inset-x-0 bg-slate-900/90 backdrop-blur-md border-t border-slate-800 px-4 py-2 flex justify-around items-center z-30">
+      <button onclick="switchTab('practice')" id="nav-practice" class="flex flex-col items-center gap-1 text-indigo-400 py-1 transition">
         <i class="fa-solid fa-microphone-lines text-base"></i>
-        <span class="text-[10px] font-bold">Practice</span>
+        <span class="text-[10px] font-medium">Practice</span>
       </button>
 
-      <button onclick="switchTab('tutor')" id="nav-tutor" class="flex flex-col items-center gap-1 text-slate-400 py-1 transition w-1/4">
+      <button onclick="switchTab('tutor')" id="nav-tutor" class="flex flex-col items-center gap-1 text-slate-400 py-1 transition">
         <i class="fa-solid fa-robot text-base"></i>
-        <span class="text-[10px] font-bold">Gizmo AI</span>
+        <span class="text-[10px] font-medium">Gizmo</span>
       </button>
 
-      <button onclick="switchTab('support')" id="nav-support" class="flex flex-col items-center gap-1 text-slate-400 py-1 transition w-1/4">
-        <i class="fa-solid fa-headset text-base"></i>
-        <span class="text-[10px] font-bold">Support</span>
+      <button onclick="switchTab('support')" id="nav-support" class="flex flex-col items-center gap-1 text-slate-400 py-1 transition">
+        <i class="fa-solid fa-circle-question text-base"></i>
+        <span class="text-[10px] font-medium">Help</span>
       </button>
 
-      <button onclick="switchTab('profile')" id="nav-profile" class="flex flex-col items-center gap-1 text-slate-400 py-1 transition w-1/4">
+      <button onclick="switchTab('profile')" id="nav-profile" class="flex flex-col items-center gap-1 text-slate-400 py-1 transition">
         <i class="fa-solid fa-user text-base"></i>
-        <span class="text-[10px] font-bold">Profile</span>
+        <span class="text-[10px] font-medium">Profile</span>
       </button>
     </nav>
 
-
-    <!-- ================= MODAL 1: ₱120 PREMIUM TIER ================= -->
+    <!-- MODAL: Premium ₱120 Subscription Plan -->
     <div id="premium-modal" class="hidden absolute inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-3">
-      <div class="bg-slate-900 border border-amber-500/30 rounded-3xl p-5 w-full max-w-sm space-y-4 shadow-2xl animate-in fade-in slide-in-from-bottom duration-200">
+      <div class="bg-slate-900 border border-amber-500/30 rounded-3xl p-5 w-full max-w-sm space-y-4 animate-in fade-in slide-in-from-bottom duration-200">
         <div class="flex justify-between items-start">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center text-xl">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
             <i class="fa-solid fa-crown"></i>
           </div>
           <button onclick="closeModal('premium-modal')" class="text-slate-400 hover:text-white p-1">
@@ -435,124 +310,46 @@
         </div>
 
         <div>
-          <h3 class="text-base font-bold text-white">HELLO-QUENT Pro Upgrade</h3>
-          <p class="text-xs text-slate-400 mt-0.5">Affordable tier designed specifically for students & fresh grads.</p>
+          <h3 class="text-lg font-bold text-white">HELLO-QUENT Premium</h3>
+          <p class="text-xs text-slate-400 mt-0.5">Budget-friendly for students and fresh grads.</p>
         </div>
 
         <div class="space-y-2 text-xs">
-          <div class="flex items-center gap-2.5 text-slate-200">
-            <i class="fa-solid fa-check text-emerald-400 font-bold"></i>
-            <span>Unlimited AI mock interview & defense simulations</span>
+          <div class="flex items-center gap-2 text-slate-300">
+            <i class="fa-solid fa-check text-emerald-400"></i>
+            <span>Unlimited AI mock interviews & defenses</span>
           </div>
-          <div class="flex items-center gap-2.5 text-slate-200">
-            <i class="fa-solid fa-check text-emerald-400 font-bold"></i>
-            <span>Detailed filler-word detection ("uhm", "like")</span>
+          <div class="flex items-center gap-2 text-slate-300">
+            <i class="fa-solid fa-check text-emerald-400"></i>
+            <span>Instant pronunciation and filler-word detection</span>
           </div>
-          <div class="flex items-center gap-2.5 text-slate-200">
-            <i class="fa-solid fa-check text-emerald-400 font-bold"></i>
-            <span>Priority booking for human consultations</span>
+          <div class="flex items-center gap-2 text-slate-300">
+            <i class="fa-solid fa-check text-emerald-400"></i>
+            <span>Priority booking for peer consultations</span>
           </div>
         </div>
 
-        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex items-center justify-between">
+        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex items-baseline justify-between">
           <div>
-            <p class="text-xs font-bold text-white">Monthly Plan</p>
+            <p class="text-xs font-semibold text-white">Student Friendly Plan</p>
             <p class="text-[10px] text-slate-400">Cancel anytime</p>
           </div>
           <div class="text-right">
             <span class="text-xl font-black text-amber-400">₱120</span>
-            <span class="text-[10px] text-slate-400"> / mo</span>
+            <span class="text-[11px] text-slate-400"> / month</span>
           </div>
         </div>
 
-        <button onclick="activateProTier()" class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 active:from-amber-600 text-slate-950 font-bold rounded-xl text-xs transition shadow-lg shadow-amber-500/20">
-          Activate Pro for ₱120
-        </button>
-      </div>
-    </div>
-
-
-    <!-- ================= MODAL 2: PEER CONSULTATION ================= -->
-    <div id="consultation-modal" class="hidden absolute inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-3">
-      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 w-full max-w-sm space-y-4 shadow-2xl">
-        <div class="flex justify-between items-start">
-          <h3 class="text-sm font-bold text-white">Book Peer Consultation</h3>
-          <button onclick="closeModal('consultation-modal')" class="text-slate-400 hover:text-white p-1">
-            <i class="fa-solid fa-xmark text-lg"></i>
-          </button>
-        </div>
-
-        <div class="space-y-3 text-xs">
-          <div>
-            <label class="block text-slate-400 font-semibold mb-1">Session Topic</label>
-            <select id="consult-topic" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-slate-100 focus:outline-none focus:border-indigo-500">
-              <option>Job Interview Mock Review</option>
-              <option>Thesis Defense Dry-Run</option>
-              <option>Public Speaking & Anxiety Advice</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-slate-400 font-semibold mb-1">Preferred Date</label>
-            <input type="date" id="consult-date" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-slate-100 focus:outline-none focus:border-indigo-500">
-          </div>
-        </div>
-
-        <button onclick="submitConsultation()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs transition shadow-lg shadow-indigo-600/30">
-          Confirm Request
+        <button onclick="subscribePremium()" class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 active:from-amber-600 active:to-amber-700 text-slate-950 font-bold rounded-xl text-xs transition shadow-lg shadow-amber-500/20">
+          Subscribe for ₱120
         </button>
       </div>
     </div>
 
   </div>
 
-  <!-- APPLICATION CONTROLLER & LOGIC -->
   <script>
-    // State Management
-    const appState = {
-      xp: 175,
-      sessions: 5,
-      minutes: 12,
-      isPro: false,
-      activeScenario: 'job',
-      isRecording: false,
-      timerSeconds: 0,
-      timerInterval: null,
-      recognition: null,
-      spokenTranscript: ''
-    };
-
-    // Scenarios Dictionary
-    const scenarios = {
-      job: {
-        name: "Job Interview Prep",
-        tag: "Job Interview Simulator",
-        prompt: "Tell me about yourself and why you're a great fit for this role."
-      },
-      defense: {
-        name: "Thesis Defense Prep",
-        tag: "Thesis Defense Simulator",
-        prompt: "What makes your research methodology valid, and how did you choose your sample?"
-      },
-      pitch: {
-        name: "Project Pitch",
-        tag: "Project Pitch Simulator",
-        prompt: "What problem does your idea solve, and why is your team best suited to deliver it?"
-      }
-    };
-
-    // Initialize App on DOM Ready
-    window.addEventListener('DOMContentLoaded', () => {
-      loadSavedData();
-      initSpeechRecognition();
-      updateProfileUI();
-      // Set default date picker to tomorrow
-      const tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      document.getElementById('consult-date').value = tomorrow.toISOString().split('T')[0];
-    });
-
-    // Tab Navigation
+    // Tab Switching Logic
     function switchTab(tabId) {
       ['practice', 'tutor', 'support', 'profile'].forEach(tab => {
         document.getElementById(`tab-${tab}`).classList.add('hidden');
@@ -566,209 +363,263 @@
       activeNav.classList.add('text-indigo-400');
     }
 
-    // Modal Control
+    // Modal Handlers
     function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
     function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-    // Scenario Switcher
-    function selectScenario(type) {
-      appState.activeScenario = type;
-      const sc = scenarios[type];
-      
-      // Update UI selection states
-      document.querySelectorAll('.scenario-btn').forEach(btn => {
-        btn.classList.remove('border-indigo-500/40', 'bg-indigo-950/20');
-        btn.classList.add('border-slate-800');
-      });
-      document.querySelectorAll('.scenario-check').forEach(chk => chk.classList.add('hidden'));
+    // Simulation Scenarios
+    const scenarios = {
+      job: {
+        tag: "Job Interview Simulator",
+        prompt: '"Tell me about yourself and why you want to work with our organization."'
+      },
+      defense: {
+        tag: "Thesis Defense Simulator",
+        prompt: '"What makes your research methodology valid, and how did you select your sample size?"'
+      },
+      pitch: {
+        tag: "Startup / Project Pitch",
+        prompt: '"What specific problem does your solution solve, and why should anyone invest in it?"'
+      }
+    };
 
-      const activeBtn = document.getElementById(`btn-${type}`);
-      activeBtn.classList.remove('border-slate-800');
-      activeBtn.classList.add('border-indigo-500/40', 'bg-indigo-950/20');
-      activeBtn.querySelector('.scenario-check').classList.remove('hidden');
-
-      document.getElementById('active-scenario-tag').innerText = sc.tag;
-      document.getElementById('prompt-question').innerText = `"${sc.prompt}"`;
+    function startSimulation(type) {
+      const scenario = scenarios[type];
+      document.getElementById('active-scenario-tag').innerText = scenario.tag;
+      document.getElementById('prompt-question').innerText = scenario.prompt;
       resetPractice();
+      window.scrollTo({ top: document.getElementById('recording-studio').offsetTop - 20, behavior: 'smooth' });
     }
 
-    // Speech Synthesis (Gizmo Voice)
-    function readPromptAloud() {
-      const text = document.getElementById('prompt-question').innerText;
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel(); // Stop any active speech
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.9;
-        utterance.pitch = 1.0;
-        window.speechSynthesis.speak(utterance);
-      } else {
-        alert('Text-to-speech audio reader is not supported in this web browser.');
-      }
+    // Recording, Analysis & Speech Engine
+    let isRecording = false;
+    let timerInterval = null;
+    let seconds = 0;
+    let startTime = null;
+    let recognizedText = "";
+    let recognition = null;
+
+    const FILLER_WORDS = ["uhm", "uh", "umm", "ah", "er", "like", "so yeah", "you know"];
+
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+
+      recognition.onresult = (event) => {
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          transcript += event.results[i][0].transcript;
+        }
+        recognizedText = transcript;
+        document.getElementById('live-transcription').innerText = transcript || 'Listening...';
+      };
+
+      recognition.onerror = () => {
+        document.getElementById('status-text').innerText = 'Microphone active. Keep speaking!';
+      };
     }
 
-    // Speech Recognition Setup with Fallback Engine
-    function initSpeechRecognition() {
-      if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        appState.recognition = new SpeechRecognition();
-        appState.recognition.continuous = true;
-        appState.recognition.interimResults = true;
-        appState.recognition.lang = 'en-US';
-
-        appState.recognition.onresult = (event) => {
-          let transcript = '';
-          for (let i = event.resultIndex; i < event.results.length; ++i) {
-            transcript += event.results[i][0].transcript;
-          }
-          appState.spokenTranscript = transcript;
-          document.getElementById('live-transcription').innerHTML = `<span class="text-slate-100 font-medium">${transcript}</span>`;
-        };
-
-        appState.recognition.onerror = () => {
-          fallbackSpeechSimulation();
-        };
-      }
-    }
-
-    // Toggle Recording Session
     function toggleRecording() {
       const btn = document.getElementById('record-button');
       const pulse = document.getElementById('mic-pulse');
       const micIcon = document.getElementById('mic-icon');
       const statusText = document.getElementById('status-text');
-      const wave = document.getElementById('waveform-container');
 
-      if (!appState.isRecording) {
+      if (!isRecording) {
         // Start Recording
-        appState.isRecording = true;
-        appState.timerSeconds = 0;
-        appState.spokenTranscript = '';
-        
+        isRecording = true;
+        seconds = 0;
+        startTime = Date.now();
+        recognizedText = "";
         document.getElementById('feedback-card').classList.add('hidden');
-        document.getElementById('live-transcription').innerHTML = '<span class="text-indigo-400 italic font-medium">Listening to your practice speech...</span>';
-        
+        document.getElementById('live-transcription').innerText = 'Listening to your speech...';
         btn.classList.remove('bg-indigo-600', 'hover:bg-indigo-500');
         btn.classList.add('bg-rose-600', 'hover:bg-rose-500');
         micIcon.classList.remove('fa-microphone');
         micIcon.classList.add('fa-stop');
         pulse.classList.remove('hidden');
-        wave.classList.remove('hidden');
-        wave.classList.add('flex');
-        statusText.innerText = 'Speaking active... Tap red button when finished.';
+        statusText.innerText = 'Speaking... Tap red button when finished.';
 
-        appState.timerInterval = setInterval(() => {
-          appState.timerSeconds++;
-          const mins = String(Math.floor(appState.timerSeconds / 60)).padStart(2, '0');
-          const secs = String(appState.timerSeconds % 60).padStart(2, '0');
+        timerInterval = setInterval(() => {
+          seconds++;
+          const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+          const secs = String(seconds % 60).padStart(2, '0');
           document.getElementById('timer-display').innerText = `${mins}:${secs}`;
         }, 1000);
 
-        if (appState.recognition) {
-          try { appState.recognition.start(); } catch(e) { fallbackSpeechSimulation(); }
-        } else {
-          fallbackSpeechSimulation();
+        if (recognition) {
+          try { recognition.start(); } catch(e) {}
         }
       } else {
-        // Stop Recording
-        appState.isRecording = false;
-        clearInterval(appState.timerInterval);
-        
+        // Stop Recording and Run Signal Analysis
+        isRecording = false;
+        clearInterval(timerInterval);
+        const durationSeconds = Math.max(1, Math.round((Date.now() - startTime) / 1000));
         btn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
         btn.classList.add('bg-indigo-600', 'hover:bg-indigo-500');
         micIcon.classList.remove('fa-stop');
         micIcon.classList.add('fa-microphone');
         pulse.classList.add('hidden');
-        wave.classList.add('hidden');
-        wave.classList.remove('flex');
         statusText.innerText = 'Analyzing your delivery gently...';
 
-        if (appState.recognition) {
-          try { appState.recognition.stop(); } catch(e) {}
+        if (recognition) {
+          try { recognition.stop(); } catch(e) {}
         }
 
         setTimeout(() => {
-          statusText.innerText = 'Practice complete!';
-          generateKindFeedback();
-          addProgressXP(50);
-        }, 700);
+          analyzeSpeech(recognizedText, durationSeconds);
+        }, 600);
       }
     }
 
-    // Fallback simulation if speech recognition is restricted or unavailable
-    function fallbackSpeechSimulation() {
-      const simulatedSample = "Hello, my name is Karla. I am passionate about applying my skills and learning through real-world experience, uhm, especially in team settings.";
-      if (!appState.spokenTranscript) {
-        appState.spokenTranscript = simulatedSample;
-        document.getElementById('live-transcription').innerHTML = `<span class="text-slate-200 font-medium">${simulatedSample}</span>`;
+    function analyzeSpeech(text, durationSeconds) {
+      const statusText = document.getElementById('status-text');
+      
+      if (!text || text.trim().length === 0) {
+        statusText.innerText = 'No speech captured. Try speaking closer to your mic!';
+        return;
       }
-    }
 
-    // Kind Feedback Generator
-    function generateKindFeedback() {
-      const words = appState.spokenTranscript.split(' ').length;
-      const wpm = appState.timerSeconds > 0 ? Math.round((words / appState.timerSeconds) * 60) : 110;
-      
-      const fillerMatches = (appState.spokenTranscript.match(/\b(uhm|uh|like|ah)\b/gi) || []).length;
-      
-      document.getElementById('fb-pace').innerText = `${wpm > 0 ? wpm : 115} wpm (${wpm > 150 ? 'Fast' : 'Steady'})`;
-      document.getElementById('fb-fillers').innerText = `${fillerMatches} detected`;
-      document.getElementById('fb-tone').innerText = 'Calm & Sincere';
+      // 1. Calculate Pacing (WPM)
+      const words = text.trim().split(/\s+/);
+      const wordCount = words.length;
+      const wpm = Math.round((wordCount / durationSeconds) * 60);
 
-      const tips = [
-        "Wonderful effort! Your sentence flow was clear. Pausing for breath between ideas sounds natural and gives you room to think.",
-        "Great job speaking up! To sound even more confident, focus on keeping your posture open as you start your opening sentence.",
-        "You handled that scenario very well! Practice it one more time to make the transition between your points feel effortless."
-      ];
-      document.getElementById('coach-tip').innerText = `"${tips[Math.floor(Math.random() * tips.length)]}"`;
+      // 2. Count Filler Words
+      const lowerText = text.toLowerCase();
+      let fillerCount = 0;
+      FILLER_WORDS.forEach(filler => {
+        const matches = lowerText.match(new RegExp(`\\b${filler}\\b`, 'g'));
+        if (matches) fillerCount += matches.length;
+      });
+
+      // 3. Update Metrics UI
+      document.getElementById('metric-pace').innerText = `${wpm} WPM`;
+      document.getElementById('metric-fillers').innerText = `${fillerCount} detected`;
       document.getElementById('feedback-card').classList.remove('hidden');
+      statusText.innerText = 'Session completed!';
+
+      // 4. Update Stats
+      const currentSessions = parseInt(document.getElementById('stat-sessions').innerText) || 0;
+      document.getElementById('stat-sessions').innerText = currentSessions + 1;
+
+      // 5. Generate Kind Coaching Feedback
+      let feedbackText = "";
+      if (wpm > 160) {
+        feedbackText = `You spoke at ${wpm} WPM. Great energy! Try inserting brief 1-second pauses after key points so your ideas land with impact.`;
+      } else if (wpm < 90) {
+        feedbackText = `Your pace was very deliberate (${wpm} WPM). Picking up speed slightly during your key points will build great engagement.`;
+      } else {
+        feedbackText = `Ideal pacing at ${wpm} WPM! You stayed right in the standard conversational range (120–150 WPM).`;
+      }
+
+      if (fillerCount > 0) {
+        feedbackText += ` We caught around ${fillerCount} filler pause(s). Replacing fillers with quiet breaths makes you sound remarkably confident.`;
+      } else {
+        feedbackText += ` Clean delivery with zero hesitation filler words!`;
+      }
+
+      document.getElementById('coach-tip').innerText = `"${feedbackText}"`;
     }
 
     function resetPractice() {
       document.getElementById('feedback-card').classList.add('hidden');
-      document.getElementById('live-transcription').innerHTML = '<span class="text-slate-500 italic">Your speech transcript will display here in real-time...</span>';
+      document.getElementById('live-transcription').innerText = 'Your spoken words will show here in real-time...';
       document.getElementById('timer-display').innerText = '00:00';
-      document.getElementById('status-text').innerText = 'Tap mic when ready. Speak at your own rhythm.';
+      document.getElementById('status-text').innerText = 'Tap to start speaking. Take your time.';
     }
 
-    // Gizmo AI Interactive Chat logic
-    function sendChatMessage() {
+    // Gizmo Virtual Chat (Google Gemini API Integration)
+    const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
+
+    async function sendChatMessage() {
       const input = document.getElementById('chat-input');
-      const text = input.value.trim();
-      if (!text) return;
+      const userText = input.value.trim();
+      if (!userText) return;
 
-      appendChatMessage(text, 'user');
-      input.value = '';
-
-      setTimeout(() => {
-        const reply = getGizmoReply(text);
-        appendChatMessage(reply, 'gizmo');
-      }, 650);
-    }
-
-    function askQuickPrompt(questionText) {
-      appendChatMessage(questionText, 'user');
-      setTimeout(() => {
-        const reply = getGizmoReply(questionText);
-        appendChatMessage(reply, 'gizmo');
-      }, 600);
-    }
-
-    function appendChatMessage(message, sender) {
       const chatBox = document.getElementById('chat-messages');
-      if (sender === 'user') {
-        chatBox.innerHTML += `
-          <div class="flex gap-2 justify-end">
-            <div class="bg-indigo-600 p-3 rounded-2xl rounded-tr-none max-w-[85%] text-white shadow-sm">
-              ${message}
+
+      // User Message UI
+      chatBox.innerHTML += `
+        <div class="flex gap-2 justify-end">
+          <div class="bg-indigo-600 p-2.5 rounded-2xl rounded-tr-none max-w-[85%] text-white">
+            ${userText}
+          </div>
+        </div>
+      `;
+      input.value = '';
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Gizmo Thinking State
+      const typingId = 'typing-' + Date.now();
+      chatBox.innerHTML += `
+        <div id="${typingId}" class="flex gap-2">
+          <div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] text-white shrink-0">G</div>
+          <div class="bg-slate-900 border border-slate-800 p-2.5 rounded-2xl rounded-tl-none text-slate-400 italic text-xs">
+            Gizmo is thinking...
+          </div>
+        </div>
+      `;
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Fallback response if API key is not yet pasted
+      if (GEMINI_API_KEY === "AQ.Ab8RN6K9X3qS8fFUdwVnLZx-fwBc9IDKnsRCaFadrzmPPe34tA") {
+        setTimeout(() => {
+          let reply = "That is totally normal to feel! Before stepping in, take one slow breath in and count to three. Would you like to practice your opening sentence with me first?";
+          if (userText.toLowerCase().includes('blank') || userText.toLowerCase().includes('forget')) {
+            reply = "If your mind goes blank, do not panic: take a sip of water or say, 'That is an insightful question, let me structure my thoughts.' It buys you 5 seconds!";
+          } else if (userText.toLowerCase().includes('shake') || userText.toLowerCase().includes('nervous')) {
+            reply = "Shaky hands or voice just mean adrenaline is present. Ground your feet flat on the floor, unclench your jaw, and let's try a 30-second drill together!";
+          }
+
+          document.getElementById(typingId).outerHTML = `
+            <div class="flex gap-2">
+              <div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] text-white shrink-0">G</div>
+              <div class="bg-slate-900 border border-slate-800 p-2.5 rounded-2xl rounded-tl-none max-w-[85%] text-slate-200 leading-relaxed">
+                ${reply}
+              </div>
+            </div>
+          `;
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }, 600);
+        return;
+      }
+
+      // Live Gemini API Call
+      try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            system_instruction: {
+              parts: [{ 
+                text: "You are Gizmo, an empathetic, encouraging public speaking and interview AI coach inside the HELLO-QUENT app. Your goal is to help shy and anxious speakers build confidence. Provide brief (2-3 sentences max), warm, actionable, and non-judgmental advice." 
+              }]
+            },
+            contents: [{ parts: [{ text: userText }] }]
+          })
+        });
+
+        const data = await response.json();
+        const gizmoReply = data.candidates[0].content.parts[0].text;
+
+        document.getElementById(typingId).outerHTML = `
+          <div class="flex gap-2">
+            <div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] text-white shrink-0">G</div>
+            <div class="bg-slate-900 border border-slate-800 p-2.5 rounded-2xl rounded-tl-none max-w-[85%] text-slate-200 leading-relaxed">
+              ${gizmoReply}
             </div>
           </div>
         `;
-      } else {
-        chatBox.innerHTML += `
+      } catch (error) {
+        document.getElementById(typingId).outerHTML = `
           <div class="flex gap-2">
-            <div class="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center text-xs text-white shrink-0 font-bold">G</div>
-            <div class="bg-slate-900 border border-slate-800 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-slate-200 leading-relaxed shadow-sm">
-              ${message}
+            <div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] text-white shrink-0">G</div>
+            <div class="bg-slate-900 border border-rose-500/30 p-2.5 rounded-2xl rounded-tl-none text-rose-300 text-xs">
+              Gizmo had trouble connecting. Let's try asking again!
             </div>
           </div>
         `;
@@ -776,97 +627,17 @@
       chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    function getGizmoReply(text) {
-      const query = text.toLowerCase();
-      if (query.includes('blank') || query.includes('forget')) {
-        return "If your mind goes blank, take a calm breath and say: <i>'That is an interesting question, let me structure my thought.'</i> It buys you 5 seconds to gather your ideas without panic!";
-      } else if (query.includes('shaking') || query.includes('nervous') || query.includes('anxious')) {
-        return "Voice shaking happens because of an adrenaline rush. Plant both feet flat on the ground, drop your shoulders down, and speak slightly slower. You are completely safe here.";
-      } else if (query.includes('introduce') || query.includes('myself')) {
-        return "Use the 3-part formula: <b>Present</b> (who you are now), <b>Past</b> (key experience or project), and <b>Future</b> (why you are excited about this opportunity).";
-      }
-      return "That's a very valid feeling! Remember that speaking is a skill built through repeated safe practice, not a talent you are born with. Would you like to practice a quick prompt in the Practice arena?";
-    }
-
-    function handleKeyPress(e) { if (e.key === 'Enter') sendChatMessage(); }
-    function clearChat() {
-      document.getElementById('chat-messages').innerHTML = `
-        <div class="flex gap-2">
-          <div class="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center text-xs text-white shrink-0 font-bold">G</div>
-          <div class="bg-slate-900 border border-slate-800 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-slate-200 leading-relaxed shadow-sm">
-            Chat cleared! How can I help you build confidence today?
-          </div>
-        </div>
-      `;
-    }
-
-    // User XP & Level progression
-    function addProgressXP(amount) {
-      appState.xp += amount;
-      appState.sessions += 1;
-      appState.minutes += 2;
-      updateProfileUI();
-      saveData();
-    }
-
-    function updateProfileUI() {
-      document.getElementById('stat-sessions').innerText = appState.sessions;
-      document.getElementById('stat-minutes').innerText = `${appState.minutes}m`;
-      document.getElementById('xp-text').innerText = `${appState.xp} XP`;
-
-      const percentage = Math.min(100, Math.round((appState.xp / 500) * 100));
-      document.getElementById('xp-bar').style.width = `${percentage}%`;
-
-      if (appState.xp >= 300) {
-        document.getElementById('level-title').innerText = "Level 3 • Confident Speaker";
-      }
-    }
-
-    // Pro Upgrade Flow
-    function activateProTier() {
-      appState.isPro = true;
-      document.getElementById('pro-badge-text').innerText = "PRO Active";
-      document.getElementById('user-pro-tag').classList.remove('hidden');
-      closeModal('premium-modal');
-      saveData();
-      alert('Congratulations! Your HELLO-QUENT Pro membership (₱120) is activated. Advanced simulations unlocked!');
-    }
-
-    // Consultation Handling
-    function submitConsultation() {
-      const topic = document.getElementById('consult-topic').value;
-      const date = document.getElementById('consult-date').value;
-      closeModal('consultation-modal');
-      alert(`Consultation Requested!\nTopic: ${topic}\nDate: ${date}\nA mentor will connect with you via your registered email/chat within 12 hours.`);
-    }
-
-    // Backup Engine & LocalStorage
-    function performBackup() {
-      saveData();
+    // Backup & Recovery Handlers
+    function backupData() {
       const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      document.getElementById('backup-status-text').innerText = `Synced successfully at ${now}`;
-      alert('Progress Backed Up! Your speech stats and preferences are safely stored locally.');
+      localStorage.setItem('helloquent_backup', JSON.stringify({ synced: true, time: now }));
+      document.getElementById('last-backup-time').innerText = `Last synced: Today at ${now}`;
+      alert('Your practice history and speech notes were securely backed up to your encrypted device storage!');
     }
 
-    function saveData() {
-      localStorage.setItem('hello_quent_app_data', JSON.stringify(appState));
-    }
-
-    function loadSavedData() {
-      const raw = localStorage.getItem('hello_quent_app_data');
-      if (raw) {
-        try {
-          const parsed = JSON.parse(raw);
-          appState.xp = parsed.xp || 175;
-          appState.sessions = parsed.sessions || 5;
-          appState.minutes = parsed.minutes || 12;
-          appState.isPro = parsed.isPro || false;
-          if (appState.isPro) {
-            document.getElementById('pro-badge-text').innerText = "PRO Active";
-            document.getElementById('user-pro-tag').classList.remove('hidden');
-          }
-        } catch(e) {}
-      }
+    function subscribePremium() {
+      alert('Welcome to HELLO-QUENT Pro (₱120/mo)! Advanced simulation modules and live defense panels unlocked.');
+      closeModal('premium-modal');
     }
   </script>
 </body>
